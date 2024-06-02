@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Define the database URL
-DATABASE_URL = "postgresql://user:password@localhost/dbname"
+DATABASE_URL = "postgresql://myappuser:apppassword@db:5432/mydatabase"
 
 # Create the SQLAlchemy engine to connect to the database
 engine = create_engine(DATABASE_URL)
@@ -70,4 +70,4 @@ class KycDocumentExtension(Base):
     CREATE_DT = Column(Date, nullable=False)
 
 # Create all tables in the database
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)

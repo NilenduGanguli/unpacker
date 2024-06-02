@@ -1,4 +1,3 @@
--- Example schema
 
 CREATE TABLE IF NOT EXISTS users (
     SOEID VARCHAR(7) PRIMARY KEY,

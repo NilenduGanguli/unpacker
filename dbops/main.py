@@ -1,10 +1,10 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from models.models import User, KycDocument, KycDocumentTransfer, KycDocumentExtension, SessionLocal, engine
-from models.schemas import User as UserSchema, UserCreate as UserCreateSchema
-from models.schemas import KycDocument as KycDocumentSchema, KycDocumentCreate as KycDocumentCreateSchema
-from models.schemas import KycDocumentTransfer as KycDocumentTransferSchema, KycDocumentTransferCreate as KycDocumentTransferCreateSchema
-from models.schemas import KycDocumentExtension as KycDocumentExtensionSchema, KycDocumentExtensionCreate as KycDocumentExtensionCreateSchema
+from dbops.models.models import User, KycDocument, KycDocumentTransfer, KycDocumentExtension, SessionLocal, engine
+from dbops.models.schemas import User as UserSchema, UserCreate as UserCreateSchema
+from dbops.models.schemas import KycDocument as KycDocumentSchema, KycDocumentCreate as KycDocumentCreateSchema
+from dbops.models.schemas import KycDocumentTransfer as KycDocumentTransferSchema, KycDocumentTransferCreate as KycDocumentTransferCreateSchema
+from dbops.models.schemas import KycDocumentExtension as KycDocumentExtensionSchema, KycDocumentExtensionCreate as KycDocumentExtensionCreateSchema
 
 app = FastAPI()
 
@@ -133,6 +133,6 @@ def update_kyc_document_extension(kyc_document_id: str, kyc_document_extension: 
 # def on_startup():
 #     Base.metadata.create_all(bind=engine)  # Create tables if they don't exist
 
-@app.on_event("shutdown")
-def on_shutdown():
-    SessionLocal().close_all()  # Close all database sessions
+# @app.on_event("shutdown")
+# def on_shutdown():
+#     SessionLocal().close_all()  # Close all database sessions
